@@ -130,10 +130,6 @@
       border-radius: 6px;
       transition: top 0.12s ease, left 0.12s ease;
       animation: pop 0.15s ease;
-      /* iOS Safari fix: prevent line-height from misaligning text in flex container */
-      line-height: 0;
-      -webkit-text-size-adjust: none;
-      text-size-adjust: none;
     }
 
     @keyframes pop {
@@ -404,6 +400,7 @@
         tile.style.fontSize = Math.min(cellSize, 60) + 'px';
         tile.style.top = (CELL_PADDING + row * (cellSize + CELL_GAP)) + 'px';
         tile.style.left = (CELL_PADDING + col * (cellSize + CELL_GAP)) + 'px';
+        tile.style.lineHeight = cellSize + 'px';
         tile.style.zIndex = value >= 1024 ? 5 : 1;
 
         gridEl.appendChild(tile);
